@@ -1,8 +1,4 @@
-# The Penetration Testing Problem
-
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
+# Challenge 6: Passing the Hash
 
 ```python
 with open('problem2.txt', 'r') as file:

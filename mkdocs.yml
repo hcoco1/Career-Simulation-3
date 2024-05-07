@@ -1,8 +1,12 @@
 site_name: Career Simulation 3
+site_url: https://hcoco1.github.io/Career-Simulation-3/
 theme:
   name: material
+
   features:
-    - navigation.tabs
+    #- navigation.tabs
+    - navigation.instant
+    - navigation.instant.prefetch
     - navigation.sections
     - toc.integrate
     - navigation.top
@@ -17,7 +21,7 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline 
         name: Switch to dark mode
-      primary: teal
+      primary: blue
       accent: purple 
     - scheme: slate 
       toggle:
@@ -34,6 +38,8 @@ extra:
       link: https://twitter.com/hcoco1
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/hcoco1/
+      
+  generator: false
 
 markdown_extensions:
   - pymdownx.highlight:
