@@ -2,6 +2,10 @@ site_name: Career Simulation 3
 site_url: https://hcoco1.github.io/Career-Simulation-3/
 theme:
   name: material
+  font:
+    text: Roboto
+  icon:
+    logo: material/library
 
   features:
     #- navigation.tabs
@@ -15,18 +19,19 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
+    - content.code.select
     
   language: en
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/weather-sunny
         name: Switch to dark mode
       primary: blue
       accent: purple 
     - scheme: slate 
       toggle:
-        icon: material/toggle-switch
+        icon: material/weather-night
         name: Switch to light mode    
       primary: teal
       accent: lime
@@ -58,6 +63,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+extra_css:
+  - 'custom.css'
+
 
 copyright: |
   &copy; 2024 <a href="https://www.hcoco1.com"  target="_blank" rel="noopener">Ivan Arias</a>

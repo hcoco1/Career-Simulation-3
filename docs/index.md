@@ -1,13 +1,42 @@
-# **The Penetration Testing**
-!!! note ""
-## Scenario
+# Introduction
 
+In this career simulation, you will use your newfound knowledge of vulnerability assessment and risk management to work through a problem. Using techniques learned in this bootcamp, you will examine and explain which tools and techniques to use for the best possible outcomes. Additionally, you will write a penetration testing report for your client that documents your findings.
 
- Fullstack Academy has reviewed your team’s report and is satisfied with the results. Because your team did such a great job, they would like a follow-up penetration test with an isolated portion of the network that was not part of the original engagement. However, this isolated portion of the network has a small number of systems, so it does not make sense for your entire team to be involved with this follow-up engagement. Instead, your team has assigned you to complete the penetration test for this isolated network on your own, as you have proven yourself ready to handle this kind of engagement.
+## Learning Objectives
 
-## Rules of Engagement
+Your deliverable for this career simulation should demonstrate an understanding of the following learning objectives. These objectives will be used for grading.
 
-- You are authorized only to scan and attack systems that reside on the same /20 subnet on which your Kali instance resides (e.g., if the IP of your Kali instance is 172.31.6.161, you are only authorized to scan and attack systems on the 172.31.6.0/20 subnet).
-- No social engineering or client-side exploits are needed or permitted on this penetration test.
-- You are allowed to work with your classmates on this penetration test.
-- Everything you need to complete this test should be available to you on the systems already; there should be no need to download outside tools for this penetration test.
+### Vulnerabilities Assessment
+
+- Exhibit ethical hacking protocols to evaluate the security of and identify vulnerabilities in target systems, networks, or system infrastructure.
+- Perform vulnerability scanning using a variety of tools.
+- Use and configure tools to perform offensive security techniques.
+- Use modules within Metasploit and explain their purpose.
+- Establish Meterpreter sessions and explain how to use them.
+- Search for privilege escalation opportunities through lateral movement.
+- Apply the pass-the-hash technique to take advantage of flaws in NTLM authentication.
+
+### Interpersonal Skills
+
+- Develop constructive and cooperative working relationships.
+- Identify problems using a group approach and develop solutions based on group consensus.
+- Apply active listening skills by using reflection, restatement, questioning, and clarification.
+- Convey information clearly, correctly, and succinctly.
+- Respond appropriately to positive and constructive feedback.
+- Reach agreements that promote mutual goals and interests.
+
+### Problem Solving
+
+- Observe and evaluate the outcomes of implementing solutions to assess the need for alternative approaches and to identify lessons learned.
+- Recall previously learned information that is relevant to the problem.
+- Use a security mindset to identify assets and security goals, potential adversaries and threats, and potential weaknesses.
+- Have sufficient inductive and deductive reasoning abilities to do the job successfully.
+- Use man pages to learn about unfamiliar commands or switches.
+- Search for online information and interact with websites and web applications.
+- Critically review, analyze, synthesize, compare, and interpret information.
+
+### Writing
+
+- Communicate thoughts, ideas, and information, which might include technical material, in a logical, organized, and coherent manner.
+- Tailor the content to the appropriate audience and purpose.
+- Analyze penetration reports and explain their purpose.

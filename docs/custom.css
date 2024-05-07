@@ -1,0 +1,19 @@
+.md-typeset :not(pre) > code {
+    background-color: #f0f0f0; /* Light grey background, change as needed */
+    color: #333333; /* Dark grey text, change as needed */
+    padding: 0.2em 0.4em; /* Adjust padding to suit your design */
+    border-radius: 3px; /* Rounded corners for a smoother look */
+    border: none; /* Ensures no additional border is applied */
+}
+
+.md-typeset h2 {
+    color: #4CAF50; /* This is a green color, change the hex code to whatever color you prefer */
+    font-weight:400;
+}
+
+.md-typeset h3 {
+    color: #4a8bdc; /* This is a green color, change the hex code to whatever color you prefer */
+    font-weight:400;
+}
+
+
