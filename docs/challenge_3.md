@@ -1,1 +1,3 @@
-# Challenge 3: Pivoting
+# **Challenge 3: Pivoting**
+!!! note ""
+## **Procedure:**

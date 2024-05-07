@@ -1,6 +1,6 @@
-# Challenge 1: Network Scanning
-
-## Runbook
+# **Challenge 1: Network Scanning**
+!!! note ""
+## **Procedure:**
 
 The first step is always reconnaissance. We need to identify all of the relevant targets in our network and find out what they're running.
 
@@ -16,3 +16,5 @@ Interpret your results and determine the following:
 - Which host is running a web server on a non-standard port? What port is it running on?
 - Which host is running an SSH server on a non-standard port? What port is it running on?
 - Which machines are running Windows-based operating systems?
+
+[Next](challenge_2.md){ .md-button .md-button--primary}

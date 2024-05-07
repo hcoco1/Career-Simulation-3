@@ -1,5 +1,5 @@
-# Instructions
-
+# **Instructions**
+!!! note ""
 ## Challenge 1: Network Scanning
 
 The first step is always reconnaissance. We need to identify all of the relevant targets in our network and find out what they're running.

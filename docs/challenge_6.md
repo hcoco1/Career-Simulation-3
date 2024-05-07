@@ -1,4 +1,6 @@
-# Challenge 6: Passing the Hash
+# **Challenge 6: Passing the Hash**
+!!! note ""
+## **Procedure:**
 
 ```python
 with open('problem2.txt', 'r') as file:

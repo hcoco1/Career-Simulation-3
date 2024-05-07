@@ -1,1 +1,3 @@
-# Challenge 7: Finding Sensitive Files
+# **Challenge 7: Finding Sensitive Files**
+!!! note ""
+## **Procedure:**
