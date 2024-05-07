@@ -1,4 +1,4 @@
-# Introduction
+# **Introduction**
 
 In this career simulation, you will use your newfound knowledge of vulnerability assessment and risk management to work through a problem. Using techniques learned in this bootcamp, you will examine and explain which tools and techniques to use for the best possible outcomes. Additionally, you will write a penetration testing report for your client that documents your findings.
 
