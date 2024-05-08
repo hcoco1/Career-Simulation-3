@@ -22,3 +22,4 @@ with open('problem2.txt', 'r') as file:
 print(f"The IP 192.168.1.1 appears {count} times.")
 # The IP 192.168.1.1 appears 5 times.
 ```
+
