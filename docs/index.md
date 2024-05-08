@@ -1,4 +1,54 @@
-# **Introduction**
+
+# Home🏠 
+
+!!! note ""
+
+## Document Contributors 
+
+### Ivan Arias
+
+## Repository and Website Creation:
+
+[**Ivan Arias**](http://www.hcoco1.com) 🧑🏻‍💻
+
+---
+
+Welcome to the **Career Simulation 3**. In this career simulation, you will use your newfound knowledge of vulnerability assessment and risk management to work through a problem. Using techniques learned in this bootcamp, you will examine and explain which tools and techniques to use for the best possible outcomes. Additionally, you will write a penetration testing report for your client that documents your findings.
+
+## Table of Contents
+
+- [Home 🏠](index.md)
+- [Introduction](2-instructions.md)
+- [Challenge 1: Network Scanning](challenge_1.md)
+- [Challenge 2: Initial Compromise](challenge_2.md)
+- [Challenge 3: Pivoting](challenge_3.md)
+- [Challenge 4: System Reconnaissance](challenge_4.md)
+- [Challenge 5: Metasploit](challenge_5.md)
+- [Challenge 6: Passing the Hash](challenge_6.md)
+- [Challenge 7: Finding Sensitive Files](challenge_7.md)
+- [Report: Documenting the Findings](report.md)
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- # **Introduction**
 
 In this career simulation, you will use your newfound knowledge of vulnerability assessment and risk management to work through a problem. Using techniques learned in this bootcamp, you will examine and explain which tools and techniques to use for the best possible outcomes. Additionally, you will write a penetration testing report for your client that documents your findings.
 
@@ -39,4 +89,4 @@ Your deliverable for this career simulation should demonstrate an understanding 
 
 - Communicate thoughts, ideas, and information, which might include technical material, in a logical, organized, and coherent manner.
 - Tailor the content to the appropriate audience and purpose.
-- Analyze penetration reports and explain their purpose.
+- Analyze penetration reports and explain their purpose. -->

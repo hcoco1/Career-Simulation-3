@@ -1,4 +1,4 @@
-site_name: Career Simulation 3
+site_name: Career Preparation
 site_url: https://hcoco1.github.io/Career-Simulation-3/
 theme:
   name: material
@@ -66,8 +66,14 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - mkdocs-pdf
+  
 extra_css:
   - 'custom.css'
+
+extra_files:
+  - docs
 
 
 copyright: |

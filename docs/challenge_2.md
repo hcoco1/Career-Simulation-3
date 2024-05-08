@@ -26,7 +26,11 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 ![alt text](images/Pasted%20image%2020240507225721.png)
 
-- The input allow to perform a SQL injection Attack
+- The input allows us to perform a SQL injection Attack
 
 
 ![alt text](images/Pasted%20image%2020240507225931.png)
+
+!!! note ""
+
+[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Challenge 1](challenge_1.md){ .md-button .md-button--primary } [Next: Challenge 3](challenge_3.md){ .md-button .md-button--primary }

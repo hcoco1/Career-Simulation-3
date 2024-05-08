@@ -144,3 +144,7 @@ Nmap done: 1 IP address (1 host up) scanned in 16.78 seconds
 **NetBIOS Session Service (139/tcp)**
 **Microsoft DS (445/tcp)**: These services are indicative of a Windows environment and are typical in Windows networking but can be vectors for attacks like SMB Relay, Pass the Hash, etc.
 **Microsoft Terminal Services (3389/tcp)**: Remote desktop protocol service is running, which could be vulnerable to brute force attacks or exploits depending on the RDP configuration and patch level.
+
+!!! note ""
+
+[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Introduction](2-instructions.md){ .md-button .md-button--primary } [Next: Challenge 2](challenge_2.md){ .md-button .md-button--primary }
