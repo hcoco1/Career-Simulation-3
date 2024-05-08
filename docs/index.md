@@ -26,7 +26,7 @@ Welcome to the **Career Simulation 3**. In this career simulation, you will use 
 - [Challenge 5: Password Cracking](challenge_5.md)
 - [Challenge 6: Metasploit](challenge_6.md)
 - [Challenge 7: Passing the Hash](challenge_7.md)
-- [Challenge 8: Finding Sensitive Files](challenge_7.md)
+- [Challenge 8: Finding Sensitive Files](challenge_8.md)
 - [Report: Documenting the Findings](report.md)
 
 
