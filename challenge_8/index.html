@@ -22,7 +22,7 @@
     
     
       
-        <title>Challenge 7: Finding Sensitive Files - Penetration Testing Report ☠️</title>
+        <title>Challenge 8: Finding Sensitive Files - Penetration Testing Report ☠️</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#challenge-7-finding-sensitive-files" class="md-skip">
+        <a href="#challenge-8-finding-sensitive-files" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Challenge 7: Finding Sensitive Files
+              Challenge 8: Finding Sensitive Files
             
           </span>
         </div>
@@ -389,7 +389,7 @@
           
   
   <span class="md-ellipsis">
-    Challenge 7: Finding Sensitive Files
+    Challenge 8: Finding Sensitive Files
   </span>
   
 
@@ -400,7 +400,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 7: Finding Sensitive Files
+    Challenge 8: Finding Sensitive Files
   </span>
   
 
@@ -425,6 +425,48 @@
   <a href="#procedure" class="md-nav__link">
     <span class="md-ellipsis">
       Procedure:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#finding-the-file-secretstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finding the file secrets.txt.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-file-secretstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading the file secrets.txt.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#congratulations-you-have-finished-the-red-team-course" class="md-nav__link">
+    <span class="md-ellipsis">
+      Congratulations! You have finished the red team course!
     </span>
   </a>
   
@@ -473,9 +515,48 @@
                   
 
 
-<div><h1 id="challenge-7-finding-sensitive-files"><strong>Challenge 7: Finding Sensitive Files</strong></h1>
+<div><h1 id="challenge-8-finding-sensitive-files"><strong>Challenge 8: Finding Sensitive Files</strong></h1>
 <div class="admonition note"></div>
 <h2 id="procedure"><strong>Procedure:</strong></h2>
+<p>With access gained on the final target server, the last step is to grab the flag and claim victory. </p>
+<ul>
+<li>Using your Meterpreter shell, search the target server for a file named secrets.txt .</li>
+<li>
+<p>Read the contents of the file, and include them in your report.</p>
+<p><strong>Note</strong>: If you have found the filepath but get errors trying to open the file, it is likely a syntax issue. Using Windows-style filepaths in a Linux command line can be difficult, since Windows uses backslashes instead of forward slashes in paths, which your command line will interpret as an escape sequence instead of a literal backslash.  There are two good workarounds for this:</p>
+<ul>
+<li>Put quotes around the filepath in your command, like "C:\Windows\system32\file.txt"</li>
+<li>Alternatively, you can use double slashes in place of the forward slashes: C:\Windows\system32\file.txt</li>
+</ul>
+</li>
+</ul>
+<h2 id="solution"><strong>Solution:</strong></h2>
+<h3 id="finding-the-file-secretstxt">Finding the file secrets.txt.</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="hll">meterpreter<span class="w"> </span>&gt;<span class="w"> </span>getsystem
+</span><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="hll"><span class="o">[</span>-<span class="o">]</span><span class="w"> </span>Already<span class="w"> </span>running<span class="w"> </span>as<span class="w"> </span>SYSTEM
+</span><a id="__codelineno-0-3" name="__codelineno-0-3"></a>meterpreter<span class="w"> </span>&gt;<span class="w"> </span>search<span class="w"> </span>-f<span class="w"> </span>secrets.txt
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>Found<span class="w"> </span><span class="m">1</span><span class="w"> </span>result...
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="o">=================</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>Path<span class="w">                          </span>Size<span class="w"> </span><span class="o">(</span>bytes<span class="o">)</span><span class="w">  </span>Modified<span class="w"> </span><span class="o">(</span>UTC<span class="o">)</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>----<span class="w">                          </span>------------<span class="w">  </span>--------------
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>c:<span class="se">\W</span>indows<span class="se">\d</span>ebug<span class="se">\s</span>ecrets.txt<span class="w">  </span><span class="m">55</span><span class="w">            </span><span class="m">2022</span>-11-05<span class="w"> </span><span class="m">22</span>:01:13<span class="w"> </span>+0000
+</code></pre></div></td></tr></table></div>
+<h3 id="reading-the-file-secretstxt">Reading the file secrets.txt.</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="hll">meterpreter<span class="w"> </span>&gt;<span class="w"> </span>cat<span class="w"> </span>c:<span class="se">\\</span>Windows<span class="se">\\</span>debug<span class="se">\\</span>secrets.txt
+</span><a id="__codelineno-1-2" name="__codelineno-1-2"></a>Congratulations!<span class="w"> </span>You<span class="w"> </span>have<span class="w"> </span>finished<span class="w"> </span>the<span class="w"> </span>red<span class="w"> </span>team<span class="w"> </span>course!meterpreter<span class="w"> </span>&gt;<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240508010646.png"></p>
+<h2 id="congratulations-you-have-finished-the-red-team-course">Congratulations! You have finished the red team course!</h2>
 <div class="admonition note"></div>
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_6/" class="md-button md-button--primary">Previous: Challenge 6</a>
