@@ -1,4 +1,4 @@
-# **Challenge 7: Passing the Hash**
+# **Challenge 7: Finding Sensitive Files**
 !!! note ""
 ## **Procedure:**
 !!! note ""

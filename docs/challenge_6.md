@@ -1,4 +1,4 @@
-# **Challenge 6: Passing the Hash**
+# **Challenge 6: Metasploit**
 !!! note ""
 ## **Procedure:**
 

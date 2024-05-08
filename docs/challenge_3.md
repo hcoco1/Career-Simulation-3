@@ -37,7 +37,7 @@ Note: There are some tricky ways to copy the file directly, but this is a great 
 
 
 
-### Once you've found a key to test, copy it to the Kali machine
+### Copy the SSH key to the Kali machine
 
 ```bash linenums="1" hl_lines="2 54"
 ┌──(kali㉿kali)-[~]
@@ -99,7 +99,7 @@ drwxr-xr-x 2 kali kali 4096 Nov 23  2022 Videos
 └─$ 
 ```
 
-### Use the key to connect from your Kali machine to the other Linux server (port 2222/SSH)
+### Connect from your Kali machine to the other Linux server (port 2222/SSH)
 
 ```bash linenums="1" hl_lines="2 5 30"
 ┌──(kali㉿kali)-[~]
@@ -137,30 +137,7 @@ alice-devops@ubuntu22:~$
 ![alt text](images/Pasted%20image%2020240507232829.png)
 
 
-### Findings in the target Machine: **authorized_keys file**
 
-
-```bash linenums="1" hl_lines="5 9 12 14 15"
-alice-devops@ubuntu22:~$ whoami
-alice-devops
-alice-devops@ubuntu22:~$ id
-uid=1002(alice-devops) gid=1002(alice-devops) groups=1002(alice-devops)
-alice-devops@ubuntu22:~$ pwd
-/home/alice-devops
-alice-devops@ubuntu22:~$ ll
-ll: command not found
-alice-devops@ubuntu22:~$ ls -a
-.  ..  .bash_history  .cache  .config  .local  .ssh  scripts
-alice-devops@ubuntu22:~$ cd .ssh
-alice-devops@ubuntu22:~/.ssh$ ls -a
-.  ..  authorized_keys
-alice-devops@ubuntu22:~/.ssh$ cat authorized_keys 
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCRJ7M/asVyWPNFMamvQaR56atrCnettKPq29yu9LvNbOnPV88WYpnuQDWf9MYxknmvIoG2GzAYx5LYO/JyK5D8u0wEVnbNKSmiHqYprIbxykmga7IIL5DNp+r+i3mytGGEYmndnhoRMRKQw5PTwYMdanHK/5j4q+dzaSFo/Lxpccb9rFBKg9REf15trLguDHlGyrZAiFf4+fD0ReD7FLdwi+R6sbiHtG6reOZ59NPmkybDitVHSXZJpQ1aNUu/O7CLpvzapIUtDHmGUhrPaZaJ45aKG1xwiJEebglz8RikeHAzEJ7LauOT9f2sCyQiDnnhQk+3kh1wIN2xrDNjZ89gY/OJjxCFD3kRVsetn1aVU1JDSna0ZPXvWxlb/IrdnXHSJSfKMfbF9lUtlgSxbTN08BrNxURZ/GFz7RM6RAW0tBLcgHTWlU2mY1jpCHhcLyvzer2VKc7RncRogOPhCS0ZhevaT0E58XjsAwPqPb/pdg5OubYahF06cGjW4Lfq5vc= root@ubuntu22
-alice-devops@ubuntu22:~/.ssh$ 
-```
-### Findings in the target Machine: **windows-maintenance.sh script**
-
-![alt text](images/Pasted%20image%2020240507233552.png)
 
 
 !!! note ""
