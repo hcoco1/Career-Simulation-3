@@ -330,6 +330,75 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-the-webserver-for-ssh-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search the webserver for SSH keys
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesing-the-home-folder-of-the-user-alice-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accesing the home folder of the user alice-devops
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesing-the-ssh-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accesing the .ssh folder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accesing-the-id_rsapem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accesing the id_rsa.pem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-the-ssh-key-to-the-kali-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copy the SSH key to the Kali machine
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-from-your-kali-machine-to-the-other-linux-server-port-2222ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect from your Kali machine to the other Linux server (port 2222/SSH)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -349,7 +418,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 4: System Reconnaissance
+    Challenge 4: Reconnaissance
   </span>
   
 
@@ -369,7 +438,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 5: Metasploit
+    Challenge 5: Password Cracking
   </span>
   
 
@@ -389,7 +458,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 6: Passing the Hash
+    Challenge 6: Metasploit
   </span>
   
 
@@ -406,6 +475,26 @@
   
     <li class="md-nav__item">
       <a href="../challenge_7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenge 7: Passing the Hash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../challenge_8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,6 +545,203 @@
 <div><h1 id="challenge-3-pivoting"><strong>Challenge 3: Pivoting</strong></h1>
 <div class="admonition note"></div>
 <h2 id="procedure"><strong>Procedure:</strong></h2>
+<p>Now that you can run commands on the web server, we want to find a way to pivot into the other Linux machine on the network.   </p>
+<ul>
+<li>Search the webserver for SSH keys you can copy. 
+Hint: Where do each users' SSH keys tend to live? </li>
+<li>Once you've found a key to test, copy it to your Kali machine.
+Note: There are some tricky ways to copy the file directly, but this is a great place to keep it simple. Copy and paste the contents of the key from one window to another.</li>
+<li>Use the key to connect from your Kali machine to the other Linux server you found earlier, using the non-standard port number revealed in your scans.</li>
+</ul>
+<p><strong>Hint</strong>: How do you use a specific key file with SSH? How do you define a custom port to connect to? </p>
+<p><strong>Hint</strong>: You will need to know which username to try and connect with. Which user did the stolen key originally belong to? </p>
+<p><strong>Note</strong>: Some SSH clients will refuse to use a key with file permissions that are too open. You will need to ensure ONLY the key file owner has read, write, or execute permissions. </p>
+<h2 id="solution"><strong>Solution:</strong></h2>
+<h3 id="search-the-webserver-for-ssh-keys">Search the webserver for <strong><a href="https://www.ssh.com/academy/ssh-keys">SSH keys</a></strong></h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507230632.png"></p>
+<h3 id="accesing-the-home-folder-of-the-user-alice-devops">Accesing the home folder of the user alice-devops</h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507230800.png"></p>
+<h3 id="accesing-the-ssh-folder">Accesing the .ssh folder</h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507230921.png"></p>
+<h3 id="accesing-the-id_rsapem">Accesing the <strong><a href="https://www.howtogeek.com/devops/what-is-a-pem-file-and-how-do-you-use-it/">id_rsa.pem</a></strong></h3>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507231043.png"></p>
+<h3 id="copy-the-ssh-key-to-the-kali-machine">Copy the SSH key to the Kali machine</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="hll">└─$<span class="w"> </span>cat<span class="w"> </span>alice_key.pem<span class="w"> </span>
+</span><a id="__codelineno-0-3" name="__codelineno-0-3"></a>-----BEGIN<span class="w"> </span>OPENSSH<span class="w"> </span>PRIVATE<span class="w"> </span>KEY-----
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>NhAAAAAwEAAQAAAYEAkSezP2rFcljzRTGpr0Gkeemrawp3rbSj6tvcrvS7zWzpz1fPFmKZ
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>7kA1n/TGMZJ5ryKBthswGMeS2DvyciuQ/LtMBFZ2zSkpoh6mKayG8cpJoGuyCC+Qzafq/o
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>t5srRhhGJp3Z4aETESkMOT08GDHWpxyv+Y+Kvnc2khaPy8aXHG/axQSoPURH9ebay4Lgx5
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>Rsq2QIhX+Pnw9EXg+xS3cIvkerG4h7Ruq3jmefTT5pMmw4rVR0l2SaUNWjVLvzuwi6b82q
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>SFLQx5hlIaz2mWieOWihtccIiRHm4Jc/EYpHhwMxCey2rjk/X9rAskIg554UJPt5IdcCDd
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>sawzY2fPYGPziY8QhQ95EVbHrZ9WlVNSQ0p2tGT171sZW/yK3Z1x0iUnyjH2xfZVLZYEsW
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>0zdPAazcVEWfxhc+0TOkQFtLQS3IB01pVNpmNY6Qh4XC8r83q9lSnO0Z3EaIDj4QktGYXr
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>2k9BOfF47AMD6j2/6XYOTrm2GoRdOnBo1uC36ub3AAAFiLytCma8rQpmAAAAB3NzaC1yc2
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>EAAAGBAJEnsz9qxXJY80Uxqa9BpHnpq2sKd620o+rb3K70u81s6c9XzxZime5ANZ/0xjGS
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>ea8igbYbMBjHktg78nIrkPy7TARWds0pKaIepimshvHKSaBrsggvkM2n6v6LebK0YYRiad
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>2eGhExEpDDk9PBgx1qccr/mPir53NpIWj8vGlxxv2sUEqD1ER/Xm2suC4MeUbKtkCIV/j5
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>8PRF4PsUt3CL5HqxuIe0bqt45nn00+aTJsOK1UdJdkmlDVo1S787sIum/NqkhS0MeYZSGs
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>9plonjloobXHCIkR5uCXPxGKR4cDMQnstq45P1/awLJCIOeeFCT7eSHXAg3bGsM2Nnz2Bj
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>84mPEIUPeRFWx62fVpVTUkNKdrRk9e9bGVv8it2dcdIlJ8ox9sX2VS2WBLFtM3TwGs3FRF
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>n8YXPtEzpEBbS0EtyAdNaVTaZjWOkIeFwvK/N6vZUpztGdxGiA4+EJLRmF69pPQTnxeOwD
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>A+o9v+l2Dk65thqEXTpwaNbgt+rm9wAAAAMBAAEAAAGAPnl21bGvv7J3Ke3hGZRIJUykQd
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>Lkhbf84QW2KvscpaLd0yb486qGlBvAuNLSRt3DT9SrPWTgQ5oKItVSWT9VDOHUKv3H7i9s
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>QuGsJL2j6wdkvw37Nzi5uzotk1cWjwrB+gedhwwYLhQP6Iy04GwmcY+x4Gw4O7dJS8wQ3C
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>4DLeMRgXcbq6anwr+LNesj7nXh8M0ouge0zW1N/uTgm1BkT6V2NjSttoK7K0RC9nSgi1oE
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>Uh88Ao2kwreuUogjzO/0O4FKGo+XZKdQfARcaluzNw2rfo9Ks03qC8DvTqYUKBTo3eKkBW
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>XJLC/eEVkhbrJeevG/4bS0Vz+KkOkRann8SliekRdASEfbDNDF3b1+9VVCFuy/HzFoytsy
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>5YZK/CgUIIEh30raAAJ9BOMzx6knOxdI/ARpyBM9QTT0qc1zLN6OoKLcJys1Nk/nfCRIhQ
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>g+Evbbh0mezFkT0F+/R3MMprwpUKhSHIeu0cDkURrxAztMusSdiF9CH625RRhdy3WJAAAA
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>wBUVjpUk8ii9e5/eiJF/A8Q4cJZcMPgRG+l0+kLj0ObUd4tpaXCq0m77XsK4loVDBS/mzt
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>kevjtlFDc8eLEYltl957wEJ8QxoFUVjs8sUyGntUz1ko51YeNxs8BnghwuNyMeM6QicgBS
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>qNSix6CMkzLz2Ixg29ZfEj65y8rSUvk/WWRn0JMDXrbz7CnglhmcFZiDMrJqlnz35n20Hr
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>9vIhC4+fm/R3Ae7TmvikqyVIIMHFvDX0Rq7n3lcrbzUyEa5QAAAMEAxAouYKwZroCeambB
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>C2h8WA8k2Dv6LyVNCBX9C873hfaRzc1V5UT2js28odhbVGkdxnFWvLDIDQqGu4KfY19nyn
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>KZVR7jJe3D6VV3sEnMQwwHbjHtFgkhoWAPjAy6LSWNEWqHWfnwiWzGaaHGbbja0/8FS8uH
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>b6uOq8p0zPQhpyawMKup06SurDy8IFLRcIDxsu18LJL2mwRSbcHthloVQtPBARGe1a5Lag
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>zTWx8K+KbZw1Pvd56w8r210XooeYiDAAAAwQC9jUW7uh/RgrAo2DleIwyu3h98By281vqO
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>+FW+IbkEy4mDBtdOctQky4P/tHqgUslyWZUf1NX2u5oXQ9l4WwqjSPPQkfaA+VOamOhk6Z
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>ri3x3sg0b1Kd4MsI5I2fcYCAFIIMC53wQF84aoSgVxP0wOePA7FxmQuDh0F34/HYw7pDTa
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>4naItp+ZQcctLiwReWWGBK3RNEWfMtxFTFkBh58pA8tYk7YBdy2/rfIsHDEWIEeFdXlpKL
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="nv">hem01tvSc1lX0AAAANcm9vdEB1YnVudHUyMgECAwQFBg</span><span class="o">==</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>-----END<span class="w"> </span>OPENSSH<span class="w"> </span>PRIVATE<span class="w"> </span>KEY-----
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>└─$<span class="w"> </span>ll
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>total<span class="w"> </span><span class="m">40</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>DCV-Storage
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>May<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">02</span>:41<span class="w"> </span>Desktop
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Documents
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Downloads
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Music
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Pictures
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Public
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Templates
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>drwxr-xr-x<span class="w"> </span><span class="m">2</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">4096</span><span class="w"> </span>Nov<span class="w"> </span><span class="m">23</span><span class="w">  </span><span class="m">2022</span><span class="w"> </span>Videos
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="hll">-rw-------<span class="w"> </span><span class="m">1</span><span class="w"> </span>kali<span class="w"> </span>kali<span class="w"> </span><span class="m">2602</span><span class="w"> </span>May<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">01</span>:48<span class="w"> </span>alice_key.pem
+</span><a id="__codelineno-0-55" name="__codelineno-0-55"></a>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>└─$<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<h3 id="connect-from-your-kali-machine-to-the-other-linux-server-port-2222ssh">Connect from your Kali machine to the other Linux server (port 2222/SSH)</h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="hll">└─$<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>alice_key.pem<span class="w"> </span><span class="c1">#Providing permissions</span>
+</span><a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>┌──<span class="o">(</span>kali㉿kali<span class="o">)</span>-<span class="o">[</span>~<span class="o">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="hll">└─$<span class="w"> </span>ssh<span class="w"> </span>ssh<span class="w"> </span>-i<span class="w"> </span>alice_key.pem<span class="w"> </span>alice-devops@172.31.44.198<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span>
+</span><a id="__codelineno-1-6" name="__codelineno-1-6"></a>Welcome<span class="w"> </span>to<span class="w"> </span>Ubuntu<span class="w"> </span><span class="m">22</span>.04<span class="w"> </span>LTS<span class="w"> </span><span class="o">(</span>GNU/Linux<span class="w"> </span><span class="m">6</span>.5.0-1018-aws<span class="w"> </span>x86_64<span class="o">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w"> </span>*<span class="w"> </span>Documentation:<span class="w">  </span>https://help.ubuntu.com
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w"> </span>*<span class="w"> </span>Management:<span class="w">     </span>https://landscape.canonical.com
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w"> </span>*<span class="w"> </span>Support:<span class="w">        </span>https://ubuntu.com/advantage
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">  </span>System<span class="w"> </span>information<span class="w"> </span>as<span class="w"> </span>of<span class="w"> </span>Wed<span class="w"> </span>May<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">03</span>:26:25<span class="w"> </span>UTC<span class="w"> </span><span class="m">2024</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">  </span>System<span class="w"> </span>load:<span class="w">  </span><span class="m">0</span>.13037109375<span class="w">      </span>Processes:<span class="w">             </span><span class="m">200</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">  </span>Usage<span class="w"> </span>of<span class="w"> </span>/:<span class="w">   </span><span class="m">33</span>.7%<span class="w"> </span>of<span class="w"> </span><span class="m">19</span>.20GB<span class="w">   </span>Users<span class="w"> </span>logged<span class="w"> </span><span class="k">in</span>:<span class="w">       </span><span class="m">0</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span>Memory<span class="w"> </span>usage:<span class="w"> </span><span class="m">36</span>%<span class="w">                </span>IPv4<span class="w"> </span>address<span class="w"> </span><span class="k">for</span><span class="w"> </span>eth0:<span class="w"> </span><span class="m">172</span>.31.44.198
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span>Swap<span class="w"> </span>usage:<span class="w">   </span><span class="m">0</span>%
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w"> </span>*<span class="w"> </span>Ubuntu<span class="w"> </span>Pro<span class="w"> </span>delivers<span class="w"> </span>the<span class="w"> </span>most<span class="w"> </span>comprehensive<span class="w"> </span>open<span class="w"> </span><span class="nb">source</span><span class="w"> </span>security<span class="w"> </span>and
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">   </span>compliance<span class="w"> </span>features.
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">   </span>https://ubuntu.com/aws/pro
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="m">257</span><span class="w"> </span>updates<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>applied<span class="w"> </span>immediately.
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="m">11</span><span class="w"> </span>of<span class="w"> </span>these<span class="w"> </span>updates<span class="w"> </span>are<span class="w"> </span>standard<span class="w"> </span>security<span class="w"> </span>updates.
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>To<span class="w"> </span>see<span class="w"> </span>these<span class="w"> </span>additional<span class="w"> </span>updates<span class="w"> </span>run:<span class="w"> </span>apt<span class="w"> </span>list<span class="w"> </span>--upgradable
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>Last<span class="w"> </span>login:<span class="w"> </span>Wed<span class="w"> </span>May<span class="w">  </span><span class="m">8</span><span class="w"> </span><span class="m">01</span>:50:31<span class="w"> </span><span class="m">2024</span><span class="w"> </span>from<span class="w"> </span><span class="m">172</span>.31.39.126
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="hll">alice-devops@ubuntu22:~$<span class="w"> </span>
+</span></code></pre></div></td></tr></table></div>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507232829.png"></p>
 <div class="admonition note"></div>
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_2/" class="md-button md-button--primary">Previous: Challenge 2</a>

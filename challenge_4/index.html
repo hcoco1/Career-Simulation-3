@@ -22,7 +22,7 @@
     
     
       
-        <title>Challenge 4: System Reconnaissance - Penetration Testing Report ☠️</title>
+        <title>Challenge 4: Reconnaissance - Penetration Testing Report ☠️</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#challenge-4-system-reconnaissance" class="md-skip">
+        <a href="#challenge-4-reconnaissance" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Challenge 4: System Reconnaissance
+              Challenge 4: Reconnaissance
             
           </span>
         </div>
@@ -309,7 +309,7 @@
           
   
   <span class="md-ellipsis">
-    Challenge 4: System Reconnaissance
+    Challenge 4: Reconnaissance
   </span>
   
 
@@ -320,7 +320,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 4: System Reconnaissance
+    Challenge 4: Reconnaissance
   </span>
   
 
@@ -350,6 +350,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#findings-in-the-target-machine-authorized_keys-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Findings in the target Machine: authorized_keys file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#findings-in-the-target-machine-windows-maintenancesh-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Findings in the target Machine: windows-maintenance.sh script
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -369,7 +402,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 5: Metasploit
+    Challenge 5: Password Cracking
   </span>
   
 
@@ -389,7 +422,7 @@
         
   
   <span class="md-ellipsis">
-    Challenge 6: Passing the Hash
+    Challenge 6: Metasploit
   </span>
   
 
@@ -406,6 +439,26 @@
   
     <li class="md-nav__item">
       <a href="../challenge_7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Challenge 7: Passing the Hash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../challenge_8/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,9 +506,141 @@
                   
 
 
-<div><h1 id="challenge-4-system-reconnaissance"><strong>Challenge 4: System Reconnaissance</strong></h1>
+<div><h1 id="challenge-4-reconnaissance"><strong>Challenge 4: Reconnaissance</strong></h1>
 <div class="admonition note"></div>
 <h2 id="procedure"><strong>Procedure:</strong></h2>
+<p>With SSH access to the second Linux machine, our new goal is to find our way into the remaining Windows hosts.</p>
+<ul>
+<li>Inexperienced or negligent developers and administrators frequently keep bad password management practices. Search for text files and scripts that might contain sensitive data, like passwords, keys, or hashes. </li>
+</ul>
+<p><strong>Hint</strong>: With user-level access, it is a good idea to start by looking into that user's own files before expanding outward. </p>
+<ul>
+<li>Find the hash that appears to be associated with an Administrator account on a Windows machine. </li>
+</ul>
+<h2 id="solution"><strong>Solution:</strong></h2>
+<h3 id="findings-in-the-target-machine-authorized_keys-file">Findings in the target Machine: <strong>authorized_keys file</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>alice-devops@ubuntu22:~$<span class="w"> </span>whoami
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>alice-devops
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>alice-devops@ubuntu22:~$<span class="w"> </span>id
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="nv">uid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>alice-devops<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>alice-devops<span class="o">)</span><span class="w"> </span><span class="nv">groups</span><span class="o">=</span><span class="m">1002</span><span class="o">(</span>alice-devops<span class="o">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="hll">alice-devops@ubuntu22:~$<span class="w"> </span><span class="nb">pwd</span>
+</span><a id="__codelineno-0-6" name="__codelineno-0-6"></a>/home/alice-devops
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>alice-devops@ubuntu22:~$<span class="w"> </span>ll
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>ll:<span class="w"> </span><span class="nb">command</span><span class="w"> </span>not<span class="w"> </span>found
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="hll">alice-devops@ubuntu22:~$<span class="w"> </span>ls<span class="w"> </span>-a
+</span><a id="__codelineno-0-10" name="__codelineno-0-10"></a>.<span class="w">  </span>..<span class="w">  </span>.bash_history<span class="w">  </span>.cache<span class="w">  </span>.config<span class="w">  </span>.local<span class="w">  </span>.ssh<span class="w">  </span>scripts
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>alice-devops@ubuntu22:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>.ssh
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="hll">alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>ls<span class="w"> </span>-a
+</span><a id="__codelineno-0-13" name="__codelineno-0-13"></a>.<span class="w">  </span>..<span class="w">  </span>authorized_keys
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="hll">alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>cat<span class="w"> </span>authorized_keys<span class="w"> </span>
+</span><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="hll">ssh-rsa<span class="w"> </span>AAAAB3NzaC1yc2EAAAADAQABAAABgQCRJ7M/asVyWPNFMamvQaR56atrCnettKPq29yu9LvNbOnPV88WYpnuQDWf9MYxknmvIoG2GzAYx5LYO/JyK5D8u0wEVnbNKSmiHqYprIbxykmga7IIL5DNp+r+i3mytGGEYmndnhoRMRKQw5PTwYMdanHK/5j4q+dzaSFo/Lxpccb9rFBKg9REf15trLguDHlGyrZAiFf4+fD0ReD7FLdwi+R6sbiHtG6reOZ59NPmkybDitVHSXZJpQ1aNUu/O7CLpvzapIUtDHmGUhrPaZaJ45aKG1xwiJEebglz8RikeHAzEJ7LauOT9f2sCyQiDnnhQk+3kh1wIN2xrDNjZ89gY/OJjxCFD3kRVsetn1aVU1JDSna0ZPXvWxlb/IrdnXHSJSfKMfbF9lUtlgSxbTN08BrNxURZ/GFz7RM6RAW0tBLcgHTWlU2mY1jpCHhcLyvzer2VKc7RncRogOPhCS0ZhevaT0E58XjsAwPqPb/pdg5OubYahF06cGjW4Lfq5vc<span class="o">=</span><span class="w"> </span>root@ubuntu22
+</span><a id="__codelineno-0-16" name="__codelineno-0-16"></a>alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<h3 id="findings-in-the-target-machine-windows-maintenancesh-script">Findings in the target Machine: <strong>windows-maintenance.sh script</strong></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>alice-devops@ubuntu22:~$<span class="w"> </span>ls<span class="w"> </span>-a
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>.<span class="w">  </span>..<span class="w">  </span>.bash_history<span class="w">  </span>.cache<span class="w">  </span>.config<span class="w">  </span>.local<span class="w">  </span>.ssh<span class="w">  </span>scripts
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>alice-devops@ubuntu22:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>.ssh
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>ls<span class="w"> </span>-a
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>.<span class="w">  </span>..<span class="w">  </span>authorized_keys
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>cat<span class="w"> </span>authorized_keys<span class="w"> </span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>ssh-rsa<span class="w"> </span>AAAAB3NzaC1yc2EAAAADAQABAAABgQCRJ7M/asVyWPNFMamvQaR56atrCnettKPq29yu9LvNbOnPV88WYpnuQDWf9MYxknmvIoG2GzAYx5LYO/JyK5D8u0wEVnbNKSmiHqYprIbxykmga7IIL5DNp+r+i3mytGGEYmndnhoRMRKQw5PTwYMdanHK/5j4q+dzaSFo/Lxpccb9rFBKg9REf15trLguDHlGyrZAiFf4+fD0ReD7FLdwi+R6sbiHtG6reOZ59NPmkybDitVHSXZJpQ1aNUu/O7CLpvzapIUtDHmGUhrPaZaJ45aKG1xwiJEebglz8RikeHAzEJ7LauOT9f2sCyQiDnnhQk+3kh1wIN2xrDNjZ89gY/OJjxCFD3kRVsetn1aVU1JDSna0ZPXvWxlb/IrdnXHSJSfKMfbF9lUtlgSxbTN08BrNxURZ/GFz7RM6RAW0tBLcgHTWlU2mY1jpCHhcLyvzer2VKc7RncRogOPhCS0ZhevaT0E58XjsAwPqPb/pdg5OubYahF06cGjW4Lfq5vc<span class="o">=</span><span class="w"> </span>root@ubuntu22
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>alice-devops@ubuntu22:~/.ssh$<span class="w"> </span>ls
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>authorized_keys
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>alice-devops@ubuntu22:~/.ssh$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>alice-devops@ubuntu22:~$<span class="w"> </span>ls
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>scripts
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>alice-devops@ubuntu22:~$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>scripts/
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>alice-devops@ubuntu22:~/scripts$<span class="w"> </span>ls<span class="w"> </span>-a
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>.<span class="w">  </span>..<span class="w">  </span>windows-maintenance.sh
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="hll">alice-devops@ubuntu22:~/scripts$<span class="w"> </span>cat<span class="w"> </span>windows-maintenance.sh<span class="w"> </span>
+</span><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="hll"><span class="c1">#!/usr/bin/bash</span>
+</span><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="hll">
+</span><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="hll"><span class="c1"># This script will (eventually) log into Windows systems as the Administrator user and run system updates on them</span>
+</span><a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="hll">
+</span><a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="hll"><span class="c1"># Note to self: The password field in this .sh script contains</span>
+</span><a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="hll"><span class="c1"># an MD5 hash of a password used to log into our Windows systems </span>
+</span><a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="hll"><span class="c1"># as Administrator. I don't think anyone will crack it. - Alice </span>
+</span><a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="hll">
+</span><a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="hll"><span class="nv">username</span><span class="o">=</span><span class="s2">"Administrator"</span>
+</span><a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="hll"><span class="nv">password_hash</span><span class="o">=</span><span class="s2">"00bfc8c729f5d4d529a412b12c58ddd2"</span>
+</span><a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="hll"><span class="c1"># password="00bfc8c729f5d4d529a412b12c58ddd2"</span>
+</span><a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="hll">
+</span><a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="hll"><span class="c1">#TODO: Figure out how to make this script log into Windows systems and update them</span>
+</span><a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="hll">
+</span><a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="hll"><span class="c1"># Confirm the user knows the right password</span>
+</span><a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="hll"><span class="nb">echo</span><span class="w"> </span><span class="s2">"Enter the Administrator password"</span>
+</span><a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="hll"><span class="nb">read</span><span class="w"> </span>input_password
+</span><a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="hll"><span class="nv">input_hash</span><span class="o">=</span><span class="sb">`</span><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span><span class="nv">$input_password</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>md5sum<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="s1">' '</span><span class="w"> </span>-f1<span class="sb">`</span>
+</span><a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="hll">
+</span><a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="hll"><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$input_hash</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$password_hash</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="hll"><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"The password for Administrator is correct."</span>
+</span><a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="hll"><span class="k">else</span>
+</span><a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="hll"><span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"The password for Administrator is incorrect. Please try again."</span>
+</span><a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="hll"><span class="w">        </span><span class="nb">exit</span>
+</span><a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="hll"><span class="k">fi</span>
+</span><a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="hll">
+</span><a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="hll"><span class="c1">#TODO: Figure out how to make this script log into Windows systems and update them</span>
+</span><a id="__codelineno-1-44" name="__codelineno-1-44"></a>alice-devops@ubuntu22:~/scripts$<span class="w"> </span>
+</code></pre></div></td></tr></table></div>
+<p><img alt="alt text" src="../images/Pasted%20image%2020240507233552.png"></p>
 <div class="admonition note"></div>
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_3/" class="md-button md-button--primary">Previous: Challenge 3</a>
