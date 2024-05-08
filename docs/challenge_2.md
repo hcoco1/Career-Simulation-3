@@ -12,7 +12,7 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 ## **Solution:**
 
-- Access the site hosted on the webserver you found in the previous step.
+### Access the site hosted on the webserver 172.31.40.22:1013
 
 ```python linenums="1"
 ┌──(kali㉿kali)-[~]
@@ -21,15 +21,19 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 ![alt text](images/Pasted%20image%2020240507225701.png)
 
-- Accesing the Apache server.
+### Accesing the **[Apache server](https://kinsta.com/knowledgebase/what-is-apache/)**.
 
 
 ![alt text](images/Pasted%20image%2020240507225721.png)
 
-- The input allows us to perform a SQL injection Attack
+### The input allows us to perform a **[SQL injection Attack](https://portswigger.net/web-security/sql-injection)**
 
 
 ![alt text](images/Pasted%20image%2020240507225931.png)
+
+### Accesing the **[passwd file](https://www.geeksforgeeks.org/understanding-the-etc-passwd-file/)**.
+
+![alt text](images/Pasted%20image%2020240507230309.png)
 
 !!! note ""
 

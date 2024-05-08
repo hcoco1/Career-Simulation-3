@@ -3,13 +3,11 @@
 
 !!! note ""
 
-## Document Contributors 
+## Web Site & Report
 
 [**Ivan Arias**](http://www.hcoco1.com) 🧑🏻‍💻
 
-## Website Creation
 
-[**Ivan Arias**](http://www.hcoco1.com) 🧑🏻‍💻
 
 ---
 
