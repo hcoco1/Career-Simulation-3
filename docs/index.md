@@ -1,17 +1,19 @@
 
-# Home🏠 
+# Career Simulation 3
 
 !!! note ""
 
 ## Document Contributors 
 
-### Ivan Arias
+[**Ivan Arias**](http://www.hcoco1.com) 🧑🏻‍💻
 
-## Repository and Website Creation:
+## Website Creation
 
 [**Ivan Arias**](http://www.hcoco1.com) 🧑🏻‍💻
 
 ---
+
+![Image title](https://images.unsplash.com/flagged/photo-1560854350-13c0b47a3180?q=80&w=1142&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D){ align=center }
 
 Welcome to the **Career Simulation 3**. In this career simulation, you will use your newfound knowledge of vulnerability assessment and risk management to work through a problem. Using techniques learned in this bootcamp, you will examine and explain which tools and techniques to use for the best possible outcomes. Additionally, you will write a penetration testing report for your client that documents your findings.
 

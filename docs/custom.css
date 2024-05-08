@@ -16,4 +16,11 @@
     font-weight:400;
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
 

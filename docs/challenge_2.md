@@ -33,4 +33,8 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 !!! note ""
 
-[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Challenge 1](challenge_1.md){ .md-button .md-button--primary } [Next: Challenge 3](challenge_3.md){ .md-button .md-button--primary }
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/challenge_1/" class="md-button md-button--primary">Previous: Challenge 1</a>
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+<a href="/Career-Simulation-3/challenge_3/" class="md-button md-button--primary">Next: Challenge 3</a>
+</div>

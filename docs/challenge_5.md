@@ -3,4 +3,8 @@
 ## **Procedure:**
 !!! note ""
 
-[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Challenge 4](challenge_4.md){ .md-button .md-button--primary } [Next: Challenge 6](challenge_6.md){ .md-button .md-button--primary }
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/challenge_4/" class="md-button md-button--primary">Previous: Challenge 4</a>
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+<a href="/Career-Simulation-3/challenge_6/" class="md-button md-button--primary">Next: Challenge 6</a>
+</div>

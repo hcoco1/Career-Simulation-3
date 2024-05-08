@@ -1,10 +1,18 @@
+
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/2-instructions/" class="md-button md-button--primary">Previous: Introduction</a>
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+<a href="/Career-Simulation-3/challenge_2/" class="md-button md-button--primary">Next: Challenge 2</a>
+</div>
+
 # **Challenge 1: Network Scanning**
 !!! note ""
+
 ## **Procedure:**
 
 The first step is always reconnaissance. We need to identify all of the relevant targets in our network and find out what they're running.
 
-- Use Nmap to run a basic scan on the subnet your Kali machine is connected to. You should find four hosts in your results, not including your own Kali machine.
+- Use Nmap to run a basic scan on the subnet your [Kali](https://www.kali.org/ "Kali Linux!")  machine is connected to. You should find four hosts in your results, not including your own Kali machine.
   - **Hint:** Where can you find the subnet range of your Kali VM?
   - **Reminder:** Running Nmap with root privileges might give you a lot more results than intended, showing hosts that are online but with no open ports. Re-run the scan as a normal user (without sudo) or ignore the results with no ports open.
 - Next, run service and version detection scans on the specific IP addresses found in your first scan. Scan for services beginning at port 1 and ending at port 5000.
@@ -147,4 +155,12 @@ Nmap done: 1 IP address (1 host up) scanned in 16.78 seconds
 
 !!! note ""
 
-[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Introduction](2-instructions.md){ .md-button .md-button--primary } [Next: Challenge 2](challenge_2.md){ .md-button .md-button--primary }
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/2-instructions/" class="md-button md-button--primary">Previous: Introduction</a>
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+<a href="/Career-Simulation-3/challenge_2/" class="md-button md-button--primary">Next: Challenge 2</a>
+</div>
+
+
+
+

@@ -9,3 +9,11 @@
 - No social engineering or client-side exploits are needed or permitted on this penetration test.
 - You are allowed to work with your classmates on this penetration test.
 - Everything you need to complete this test should be available to you on the systems already; there should be no need to download outside tools for this penetration test.
+
+!!! note ""
+
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+<a href="/Career-Simulation-3/challenge_1/" class="md-button md-button--primary">Next: Challenge 1</a>
+</div>
+

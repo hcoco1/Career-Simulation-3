@@ -5,5 +5,9 @@
 
 ![Alt text](Amazon-Career-Choice-Cybersecurity-Bootcamp-Syllabus.pdf){ type=application/pdf style="min-height:75vh;width:100%" }
 
-[Home 🏠](index.md){ .md-button .md-button--secondary } [Previus: Challenge 7](challenge_7.md){ .md-button .md-button--primary } 
+<div class="button-container" markdown="1">
+<a href="/Career-Simulation-3/challenge_7/" class="md-button md-button--primary">Previous: Challenge 7</a>
+<a href="/Career-Simulation-3/" class="md-button md-button--secondary">Home 🏠</a>
+
+</div>
 
