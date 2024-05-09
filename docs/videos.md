@@ -1,4 +1,4 @@
-# **Links**
+# **Videos**
 !!! note ""
 <div style="text-align: center"> <h2><strong>Penetration Testing Videos:</strong> </h2></div>
 

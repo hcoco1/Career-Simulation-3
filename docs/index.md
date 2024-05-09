@@ -28,7 +28,7 @@ Welcome to the **Career Simulation 3**. In this career simulation, you will use 
 - [Challenge 7: Passing the Hash](challenge_7.md)
 - [Challenge 8: Finding Sensitive Files](challenge_8.md)
 - [Report: Documenting the Findings](report.md)
-- [Videos: Pentesting Videos](links.md)
+- [Videos: Pentesting Videos](videos.md)
 
 
 ---
