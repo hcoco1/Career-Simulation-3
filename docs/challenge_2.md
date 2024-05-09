@@ -12,6 +12,8 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 ## **Solution:**
 
+### OPTION 1 (Manually)
+
 ### Access the site hosted on the webserver 172.31.40.22:1013
 
 ```python linenums="1"
@@ -34,6 +36,30 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 ### Accesing the **[passwd file](https://www.geeksforgeeks.org/understanding-the-etc-passwd-file/)**.
 
 ![alt text](images/Pasted%20image%2020240507230309.png)
+
+## Successful SQL Injection Attack
+
+### OPTION 2 (Using Burp Suite Community Edition)
+
+- Intercepting the request in the Proxy Tab
+
+![alt text](images/burp.png)
+
+- Sending the request to the Repeater Tab and testing the `ls` command
+
+![alt text](images/burp1.png)
+
+- Testing the `whoami` command
+
+![alt text](images/burp2.png)
+
+- Testing the `cat /etc/passwd` command
+
+![alt text](images/burp4.png)
+
+## Successful SQL Injection Attack
+
+
 
 !!! note ""
 
