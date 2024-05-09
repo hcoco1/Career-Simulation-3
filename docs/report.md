@@ -3,7 +3,7 @@
 ## **Procedure:**
 
 
-![Alt text](Amazon-Career-Choice-Cybersecurity-Bootcamp-Syllabus.pdf){ type=application/pdf style="min-height:75vh;width:100%" }
+![Alt text](Penetration Testing Report.pdf){ type=application/pdf style="min-height:75vh;width:100%" }
 
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_7/" class="md-button md-button--primary">Previous: Challenge 7</a>
