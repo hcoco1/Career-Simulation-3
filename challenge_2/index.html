@@ -321,6 +321,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#option-1-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPTION 1 (Manually)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#access-the-site-hosted-on-the-webserver-1723140221013" class="md-nav__link">
     <span class="md-ellipsis">
       Access the site hosted on the webserver 172.31.40.22:1013
@@ -358,6 +367,39 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#successful-sql-injection-attack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Successful SQL Injection Attack
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Successful SQL Injection Attack">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-2-using-burp-suite-community-edition" class="md-nav__link">
+    <span class="md-ellipsis">
+      OPTION 2 (Using Burp Suite Community Edition)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#successful-sql-injection-attack_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Successful SQL Injection Attack
+    </span>
+  </a>
   
 </li>
       
@@ -536,6 +578,7 @@
 <li>Demonstrate you can run commands on the target system by running the <code>whoami</code> command.</li>
 </ul>
 <h2 id="solution"><strong>Solution:</strong></h2>
+<h3 id="option-1-manually">OPTION 1 (Manually)</h3>
 <h3 id="access-the-site-hosted-on-the-webserver-1723140221013">Access the site hosted on the webserver 172.31.40.22:1013</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="err">┌──</span><span class="p">(</span><span class="n">kali</span><span class="err">㉿</span><span class="n">kali</span><span class="p">)</span><span class="o">-</span><span class="p">[</span><span class="o">~</span><span class="p">]</span>
@@ -548,6 +591,25 @@
 <p><img alt="alt text" src="../images/Pasted%20image%2020240507225931.png"></p>
 <h3 id="accesing-the-passwd-file">Accesing the <strong><a href="https://www.geeksforgeeks.org/understanding-the-etc-passwd-file/">passwd file</a></strong>.</h3>
 <p><img alt="alt text" src="../images/Pasted%20image%2020240507230309.png"></p>
+<h2 id="successful-sql-injection-attack">Successful SQL Injection Attack</h2>
+<h3 id="option-2-using-burp-suite-community-edition">OPTION 2 (Using Burp Suite Community Edition)</h3>
+<ul>
+<li>Intercepting the request in the Proxy Tab</li>
+</ul>
+<p><img alt="alt text" src="../images/burp.png"></p>
+<ul>
+<li>Sending the request to the Repeater Tab and testing the <code>ls</code> command</li>
+</ul>
+<p><img alt="alt text" src="../images/burp1.png"></p>
+<ul>
+<li>Testing the <code>whoami</code> command</li>
+</ul>
+<p><img alt="alt text" src="../images/burp2.png"></p>
+<ul>
+<li>Testing the <code>cat /etc/passwd</code> command</li>
+</ul>
+<p><img alt="alt text" src="../images/burp4.png"></p>
+<h2 id="successful-sql-injection-attack_1">Successful SQL Injection Attack</h2>
 <div class="admonition note"></div>
 <div class="button-container" markdown="1">
 <a href="/Career-Simulation-3/challenge_1/" class="md-button md-button--primary">Previous: Challenge 1</a>
