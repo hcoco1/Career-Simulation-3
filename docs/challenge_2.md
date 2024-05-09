@@ -43,6 +43,8 @@ Next, we need to find our initial compromise vector. Servers hosting openly acce
 
 - Intercepting the request in the Proxy Tab
 
+![alt text](images/burp6.png)
+
 ![alt text](images/burp.png)
 
 - Sending the request to the Repeater Tab and testing the `ls` command
