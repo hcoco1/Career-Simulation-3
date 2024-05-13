@@ -75,7 +75,7 @@ Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
 meterpreter > 
 ```
 
-### Once the firs session was send it to the background, another meterpreter session will be created targeting the last windows machine (Windows VM 172.31.45.94)
+### Once the first session was send to the background, another meterpreter session will be created targeting the last windows machine (Windows VM 172.31.45.94)
 
 - Setting the options (RHOST, PAYLOAD, SMB)
 
@@ -132,7 +132,7 @@ Meterpreter     : x86/windows
 meterpreter > 
 ```
 
-### The meterpreter shell was deployed sucessfully in the last windows machine (Windows VM 172.31.45.94)
+### The meterpreter shell was deployed successfully in the last windows machine (Windows VM 172.31.45.94)
 
 ![alt text](images/Pasted%20image%2020240508002959.png)
 
