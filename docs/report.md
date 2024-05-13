@@ -3,7 +3,7 @@
 ## **Written Report:**
 
 
-![Alt text](Penetration Testing Report.pdf){ type=application/pdf style="min-height:75vh;width:100%" }
+![Alt text](Report.pdf){ type=application/pdf style="min-height:75vh;width:100%" }
 
 
 
