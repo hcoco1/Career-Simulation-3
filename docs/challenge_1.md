@@ -147,6 +147,26 @@ Nmap done: 1 IP address (1 host up) scanned in 16.78 seconds
 **Microsoft DS (445/tcp)**: These services are indicative of a Windows environment and are typical in Windows networking but can be vectors for attacks like SMB Relay, Pass the Hash, etc.
 **Microsoft Terminal Services (3389/tcp)**: Remote desktop protocol service is running, which could be vulnerable to brute force attacks or exploits depending on the RDP configuration and patch level.
 
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hcoco1-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 !!! note ""
 
 <div class="button-container" markdown="1">
