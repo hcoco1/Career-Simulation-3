@@ -1,5 +1,5 @@
 <div align="center"><h1>Ivan Arias</h1></div>
-<div align="center"><h1>Full-Stack Developer | Junior Penetration Tester | AWS Enthusiast</h1></div>
+<div align="center"><h2>Full-Stack Developer | Junior Penetration Tester | AWS Enthusiast</h2></div>
 
 <div id="badges" align="center">
   <a href="https://www.linkedin.com/in/hcoco1/">
